@@ -1,0 +1,98 @@
+#main {
+	font-size:24px;
+}
+#info {
+	background-color: rgba(255,255,255, 0.3);
+	display:flex;
+	font-size:1.3em;
+	padding:5% 2%;
+	max-width:100%;
+}
+#info > img {
+	max-width:100%;
+}
+#details {
+	color:#000;
+	margin:0 0 0 2%;
+}
+#details #year {
+	color:rgba(0,0,0,0.5);
+	font-size:0.6em;
+}
+#details p {
+	font-size:0.8em;
+}
+#genreList {
+	display:flex;
+	list-style-type:none;
+	padding:0;
+}
+#genreList li {
+	background-color:#000;
+	border-radius:10px;
+	color:#fff;
+	font-size:0.5em;
+	margin:0 2% 0 0;
+	padding:1%;
+}
+#cast {
+	color:#fff;
+	text-align:center;
+}
+#castList {
+	align-items:baseline;
+	display:flex;
+	justify-content:space-around;
+	list-style-type:none;
+	padding:0;
+	max-width:100vw;
+}
+.eachCast {
+	text-align:center;
+	min-width:18vw;
+	max-width:18vw;
+}
+.eachCast img {
+	border-radius:20px;
+	height:260px;
+	max-width:173px;
+}
+
+@media screen and (max-width:900px) {
+	#info {
+		display:block;
+		font-size:0.7em;
+		margin:0 auto;
+		text-align:center;
+	}
+	#genreList {
+		display:block;
+	}
+	#genreList li {
+		display:inline;
+	}
+	#castList {
+		display:inline-block;
+	}
+	.eachCast {
+		min-width:90vw;
+		max-width:90vw;
+		margin:0 0 50px 0;
+	}
+	.eachCast h4, .eachCast h6 {
+		margin:0;
+	}
+}
+
+@media screen and (max-width:750px) {
+	#main {
+		font-size:22px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#main {
+		font-size:26px;
+	}
+
+}

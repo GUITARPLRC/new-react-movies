@@ -1,0 +1,19 @@
+.title {
+	align-items:center;
+	background: linear-gradient(to right, #8ba0bc 0%,#3b5a81 100%);
+	display:flex;
+	justify-content:center;
+	min-height:100px;
+	margin:0 auto;
+  text-align: center;
+}
+.title h1 {
+	letter-spacing:15px;
+	margin:0;
+	padding:0;
+}
+
+.title > a {
+	color:#000;
+	text-decoration:none;
+}

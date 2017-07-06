@@ -1,0 +1,56 @@
+.eachMovieSearch {
+	border:1px solid #000;
+	border-radius:10px;
+	display:flex;
+	margin:1%;
+	padding:1%;
+	transition:all 0.2s ease-in-out;
+	max-width:100%;
+}
+.eachMovieSearch:hover {
+	background-color:rgba(0,0,0,0.1);
+	cursor:pointer;
+}
+.movieDescription {
+	display:flex;
+	flex-direction:column;
+	margin:0 0 0 2%;
+}
+.movieDescription h3, .movieDescription p {
+	margin:0;
+	padding:0;
+}
+.movieDescription p:last-of-type {
+	font-size:0.8em;
+	margin:2% 0 0 0;
+}
+
+@media screen and (max-width: 768px) {
+	.eachMovieSearch {
+		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.eachMovieSearch {
+		font-size: 22px;
+	}
+}
+
+@media screen and (max-width: 470px) {
+	.eachMovieSearch {
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.eachMovieSearch {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.eachMovieSearch {
+		font-size: 14px;
+	}
+}
