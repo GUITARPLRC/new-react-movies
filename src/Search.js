@@ -27,7 +27,7 @@ class Search extends Component {
 			}
 
 			this.props.handleMovieName(this.state.value);
-			this.props.history.push('/movie');
+			this.props.history.push('/movie/movie');
 
 			let input = document.querySelector('#searchTitle');
 			input.value = '';

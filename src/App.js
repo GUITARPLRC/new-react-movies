@@ -64,9 +64,9 @@ class App extends Component {
 							  atActive={{ opacity: 1 }}
 							>
 								<Switch key={location.key} location={location}>
-									<Route exact path='/' render={props => <Home handleMovieName={this.handleMovieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
-									<Route exact path='/movie' render={props => <Movie handleMovieName={this.handleMovieName} movieName={this.state.movieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
-									<Route path={`/movie/${this.state.movieId}`} render={props => <MovieDetails movieId={this.state.movieId} handleMovieName={this.handleMovieName} {...props} />} />
+									<Route exact path='/movie/' render={props => <Home handleMovieName={this.handleMovieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
+									<Route exact path='/movie/movie' render={props => <Movie handleMovieName={this.handleMovieName} movieName={this.state.movieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
+									<Route exact path={`/movie/movie/${this.state.movieId}`} render={props => <MovieDetails movieId={this.state.movieId} handleMovieName={this.handleMovieName} {...props} />} />
 								</Switch>
 							</RouteTransition>
 						);

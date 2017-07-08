@@ -42,7 +42,7 @@ class List extends Component {
 		}
 	}
 	moveRight() {
-		let width = -((this.state.totalListLength * 500) - 1500);
+		let width = -((this.state.totalListLength * 500) - 2000);
 		let list = document.querySelector(`#${this.props.name}`);
 		let position = list.getBoundingClientRect();
 		var val = position.left - 500;

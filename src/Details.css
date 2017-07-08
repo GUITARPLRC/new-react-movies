@@ -2,7 +2,7 @@
 	font-size:24px;
 }
 #info {
-	background-color: rgba(255,255,255, 0.3);
+	background-color: rgba(255,255,255, 0.4);
 	display:flex;
 	font-size:1.3em;
 	padding:5% 2%;
@@ -31,9 +31,9 @@
 	background-color:#000;
 	border-radius:10px;
 	color:#fff;
-	font-size:0.5em;
+	font-size:0.7em;
 	margin:0 2% 0 0;
-	padding:1%;
+	padding:10px;
 }
 #cast {
 	color:#fff;
@@ -61,7 +61,7 @@
 @media screen and (max-width:900px) {
 	#info {
 		display:block;
-		font-size:0.7em;
+		font-size:1em;
 		margin:0 auto;
 		text-align:center;
 	}
@@ -70,6 +70,9 @@
 	}
 	#genreList li {
 		display:inline;
+	}
+	#details > p {
+		text-align:left;
 	}
 	#castList {
 		display:inline-block;
