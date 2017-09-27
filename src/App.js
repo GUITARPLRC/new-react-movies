@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { RouteTransition } from 'react-router-transition';
 
 import Title from './Title';
 import Home from './Home';
@@ -14,7 +13,7 @@ class App extends Component {
 			movieName: null,
 			results: null,
 			movieId: null
-		}
+		};
 		this.handleMovieName = this.handleMovieName.bind(this);
 		this.getData = this.getData.bind(this);
 		this.setPathForDetails = this.setPathForDetails.bind(this);
@@ -24,29 +23,30 @@ class App extends Component {
 		if (localStorage) {
 			if (localStorage.getItem('movieName')) {
 				let name = localStorage.getItem('movieName');
-				this.setState({movieName: name}, this.getData);
+				this.setState({ movieName: name }, this.getData);
 			}
-			if(localStorage.getItem('movieId')) {
+			if (localStorage.getItem('movieId')) {
 				let id = localStorage.getItem('movieId');
-				this.setState({movieId: id});
+				this.setState({ movieId: id });
 			}
 		}
 	}
 
 	handleMovieName(name) {
-		this.setState({ movieName: name}, this.getData)
+		this.setState({ movieName: name }, this.getData);
 	}
 
 	getData() {
-		let url = `https://api.themoviedb.org/3/search/movie?api_key=c4caddf3d2f1e3a21633c2611179f2e4&query=${this.state.movieName}`;
+		let url = `https://api.themoviedb.org/3/search/movie?api_key=c4caddf3d2f1e3a21633c2611179f2e4&query=${this.state
+			.movieName}`;
 
 		fetch(url)
 			.then(res => res.json())
-			.then(data => this.setState({results: data.results}));
+			.then(data => this.setState({ results: data.results }));
 	}
 
 	setPathForDetails(id) {
-		this.setState({movieId: id})
+		this.setState({ movieId: id });
 	}
 
 	render() {
@@ -55,24 +55,62 @@ class App extends Component {
 				<Title />
 
 				<Router>
-					<Route render={({location, history, match}) => {
-						return (
-							<RouteTransition
-							  pathname={location.pathname}
-							  atEnter={{ opacity: 0 }}
-							  atLeave={{ opacity: 0 }}
-							  atActive={{ opacity: 1 }}
-							>
+					<Route
+						render={({ location, history, match }) => {
+							return (
 								<Switch key={location.key} location={location}>
-									<Route exact path='/movie/' render={props => <Home handleMovieName={this.handleMovieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
-									<Route exact path='/movie/movie' render={props => <Movie handleMovieName={this.handleMovieName} movieName={this.state.movieName} getData={this.getData} results={this.state.results} setPathForDetails={this.setPathForDetails} {...props} />} />
-									<Route exact path={`/movie/movie/${this.state.movieId}`} render={props => <MovieDetails movieId={this.state.movieId} handleMovieName={this.handleMovieName} {...props} />} />
+									<Route
+										exact
+										path="/movie/index.html"
+										render={props => (
+											<Home
+												handleMovieName={this.handleMovieName}
+												getData={this.getData}
+												results={this.state.results}
+												setPathForDetails={this.setPathForDetails}
+												{...props}
+											/>
+										)}
+									/>
+									<Route
+										exact
+										path="/movie/"
+										render={props => (
+											<Home
+												handleMovieName={this.handleMovieName}
+												getData={this.getData}
+												results={this.state.results}
+												setPathForDetails={this.setPathForDetails}
+												{...props}
+											/>
+										)}
+									/>
+									<Route
+										exact
+										path="/movie/movie"
+										render={props => (
+											<Movie
+												handleMovieName={this.handleMovieName}
+												movieName={this.state.movieName}
+												getData={this.getData}
+												results={this.state.results}
+												setPathForDetails={this.setPathForDetails}
+												{...props}
+											/>
+										)}
+									/>
+									<Route
+										exact
+										path={`/movie/movie/${this.state.movieId}`}
+										render={props => (
+											<MovieDetails movieId={this.state.movieId} handleMovieName={this.handleMovieName} {...props} />
+										)}
+									/>
 								</Switch>
-							</RouteTransition>
-						);
-					}} />
+							);
+						}}
+					/>
 				</Router>
-
 			</div>
 		);
 	}
